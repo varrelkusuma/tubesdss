@@ -22,7 +22,7 @@
 		<h3>Apakah ada harga terentu yang diinginkan?</h3>
 		<p>Pilih kelas harga dari obat yang Anda harapkan.</p>
 
-		<form action="#" method="POST">
+		<form action="result.php" method="POST">
             <select name="daftar_penyakit">
                 <option value="semua">Semua</option>
                 <option value="murah">Murah</option>

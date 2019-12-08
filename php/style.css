@@ -26,6 +26,7 @@ li {
   float: left;
 }
 
+
 li a {
   display: block;
   color: white;
@@ -34,10 +35,10 @@ li a {
   text-decoration: none;
 }
 
-/*li a:hover {
+li a:hover {
   background-color: #ED5151;
   transition: 0.4s;
-}*/
+}
 
 .active {
   background-color: #32A873;
@@ -86,4 +87,29 @@ input {
 input:hover {
   background: #ED5151;
   transition: 0.4s;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+  margin: auto;
+  margin-top: 16px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+td {
+  font-size: 20px;
+}
+
+th {
+  font-size: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #32A873;
+  color: white;
 }
