@@ -1,12 +1,10 @@
 <?php
 //konfigurasi mysql dengan php
 
-$url = parse_url(getenv("CLEAR_DATABASE_URL"));
-
-$host		= $url["host"];
-$username	= $url["user"];
-$password	= $url["pass"];
-$dbname		= substr($url["path"], 1);
+$host		= "us-cdbr-iron-east-05.cleardb.net";
+$username	= "b02a5dfa8b82eb";
+$password	= "6e3b2186";
+$dbname		= "heroku_36e15a00f7508f8";
 
 $link = mysqli_connect($host, $username, $password, $dbname);
 
