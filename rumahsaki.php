@@ -2,7 +2,7 @@
 
 session_start();
 require("database.php");
-$query = "SELECT * FROM `cure`";
+$query = "SELECT * FROM `hospital`";
 $connect = new mysqli($host, $username, $password, $dbname);
 
 $result = mysqli_query($link, $query);
@@ -29,19 +29,28 @@ $_SESSION["cure"] = $kontraindikasi;
 		<ul>
 		  <li><a>Penyakit</a></li>
 		  <li><a>Kontraindikasi</a></li>
-		  <li><a class="active">Harga</a></li>
-		  <li><a>Rumah Sakit</a></li>
+		  <li><a>Harga</a></li>
+		  <li><a class="active">Rumah Sakit</a></li>
 		</ul>
 
-		<h3>Apakah ada harga terentu yang diinginkan?</h3>
-		<p>Pilih kelas harga dari obat yang Anda harapkan.</p>
+		<h3>Apakah ada preferensi rumah sakit yang diinginkan?</h3>
+		<p>Pilih nama rumah sakit yang Anda harapkan.</p>
 
-		<form action="rumahsakit.php" method="POST">
-            <select name="Harga">
-                <option value="murah">< Rp5,000</option>
-                <option value="sedang">Rp5,000 - Rp20,000</option>
-                <option value="mahal">> Rp20,000</option>
-            </select>
+		<form action="result.php" method="POST">
+
+        <select name="Cure">
+			
+            <?php
+            
+            $rumahsakit = "SELECT * FROM `hospital`";
+            $queryRS = mysqli_query($link, $rumahsakit);
+            
+            while($row = mysqli_fetch_array($queryRS)):;?>
+
+                <option value="<?php echo $row[1];?>"><?php echo $row[1];?></option>
+            <?php endwhile;?>
+        
+        </select>
 
             <input type="submit" name="submit" value="Submit">
 

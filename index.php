@@ -28,6 +28,7 @@ $result = mysqli_query($link, $query);
 		  <li><a class="active">Penyakit</a></li>
 		  <li><a>Kontraindikasi</a></li>
 		  <li><a>Harga</a></li>
+		  <li><a>Rumah Sakit</a></li>
 		</ul>
 
 		<h3>Penyakit apa yang diderita pasienmu?</h3>

@@ -30,6 +30,7 @@ $_SESSION["disease"] = $disease;
 		  <li><a>Penyakit</a></li>
 		  <li><a class="active">Kontraindikasi</a></li>
 		  <li><a>Harga</a></li>
+		  <li><a>Rumah Sakit</a></li>
 		</ul>
 
 		<h3>Apakah ada kondisi lain dari pasien kamu yang perlu dipertimbangkan?</h3>
