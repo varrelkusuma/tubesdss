@@ -6,8 +6,9 @@ $query = "SELECT * FROM `hospital`";
 $connect = new mysqli($host, $username, $password, $dbname);
 
 $result = mysqli_query($link, $query);
-$kontraindikasi = $_POST['Cure'];
-$_SESSION["cure"] = $kontraindikasi;
+$harga = $_POST['Harga'];
+$_SESSION["harga"] = $harga;
+
 
 ?>
 
@@ -38,7 +39,7 @@ $_SESSION["cure"] = $kontraindikasi;
 
 		<form action="result.php" method="POST">
 
-        <select name="Cure">
+        <select name="RumahSakit">
 			
             <?php
             

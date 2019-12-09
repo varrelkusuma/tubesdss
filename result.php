@@ -8,7 +8,8 @@ $connect = new mysqli($host, $username, $password, $dbname);
 $result = mysqli_query($link, $query);
 $penyakit = $_SESSION["disease"];
 $kontraindikasi = $_SESSION["cure"];
-$harga = $_POST['Harga']
+$harga = $_SESSION["harga"];
+$rumahsakit = $_POST['RumahSakit']
 
 ?>
 
