@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+require("../config.php");
+$query = "SELECT * FROM `cure`";
+$connect = new mysqli($host, $username, $password, $dbname);
+
+$result = mysqli_query($link, $query);
+$disease = $_POST['Disease'];
+$_SESSION["disease"] = $disease;
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +36,7 @@
 		<p>Tanyakan kepada pasienmu terkait kondisi-kondisi di bawah ini.</p>
 
 		<form action="harga.php" method="POST">
-            <select name="daftar_penyakit">
+            <!--<select name="daftar_penyakit">
                 <option value="alergi rinitis">Alergi Rinitis</option>
                 <option value="asthma">Asthma</option>
                 <option value="asthma akut">Asthma Akut</option>
@@ -34,7 +47,20 @@
                 <option value="eczema mulut">Eczema Mulut</option>
                 <option value="eczema tenggorokan">Eczema Tenggorokan</option>
                 <option value="diabetes">Diabetes</option>
-            </select>
+            </select>-->
+			<select name="Cure">
+			
+				<?php
+				
+				$kontraindikasi = "SELECT * FROM `cure` WHERE diseaseName = '$disease'";
+				$queryIndikasi = mysqli_query($link, $kontraindikasi);
+				
+				while($row = mysqli_fetch_array($queryIndikasi)):;?>
+
+					<option value="<?php echo $row[2];?>"><?php echo $row[2];?></option>
+				<?php endwhile;?>
+			
+			</select>
 
             <input type="submit" name="submit" value="Submit">
 

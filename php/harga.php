@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+require("../config.php");
+$query = "SELECT * FROM `cure`";
+$connect = new mysqli($host, $username, $password, $dbname);
+
+$result = mysqli_query($link, $query);
+$kontraindikasi = $_POST['Cure'];
+$_SESSION["cure"] = $kontraindikasi;
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,10 +36,10 @@
 		<p>Pilih kelas harga dari obat yang Anda harapkan.</p>
 
 		<form action="result.php" method="POST">
-            <select name="daftar_penyakit">
-                <option value="semua">Semua</option>
-                <option value="murah">Murah</option>
-                <option value="menengah">Menengah</option>
+            <select name="Harga">
+                <option value="murah">< Rp5,000</option>
+                <option value="sedang">Rp5,000 - Rp20,000</option>
+                <option value="mahal">> Rp20,000</option>
             </select>
 
             <input type="submit" name="submit" value="Submit">
