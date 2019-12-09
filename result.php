@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require("database.php");
+require("config.php");
 $query = "SELECT * FROM `medicine`";
 $connect = new mysqli($host, $username, $password, $dbname);
 
