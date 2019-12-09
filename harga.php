@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require("../config.php");
+require("config.php");
 $query = "SELECT * FROM `cure`";
 $connect = new mysqli($host, $username, $password, $dbname);
 

@@ -1,13 +1,11 @@
 <?php
 
 session_start();
-require("../config.php");
-$query = "SELECT * FROM `cure`";
+require("config.php");
+$query = "SELECT * FROM `disease`";
 $connect = new mysqli($host, $username, $password, $dbname);
 
 $result = mysqli_query($link, $query);
-$disease = $_POST['Disease'];
-$_SESSION["disease"] = $disease;
 
 ?>
 
@@ -27,16 +25,16 @@ $_SESSION["disease"] = $disease;
 		<p class="description">Hai, dok! Sistem ini akan membantu Anda dalam menentukan resep obat pasien Anda berdasarkan penyakit, kontraindikasi, dan harga obat. Pastikan hasil diagnosa Anda benar ya!</p>
 
 		<ul>
-		  <li><a>Penyakit</a></li>
-		  <li><a class="active">Kontraindikasi</a></li>
+		  <li><a class="active">Penyakit</a></li>
+		  <li><a>Kontraindikasi</a></li>
 		  <li><a>Harga</a></li>
 		</ul>
 
-		<h3>Apakah ada kondisi lain dari pasien kamu yang perlu dipertimbangkan?</h3>
-		<p>Tanyakan kepada pasienmu terkait kondisi-kondisi di bawah ini.</p>
+		<h3>Penyakit apa yang diderita pasienmu?</h3>
+		<p>Pilih penyakit yang tersedia di bawah ini.</p>
 
-		<form action="harga.php" method="POST">
-            <!--<select name="daftar_penyakit">
+		<form action="kontraindikasi.php" method="POST">
+            <!-- <select name="daftar_penyakit">
                 <option value="alergi rinitis">Alergi Rinitis</option>
                 <option value="asthma">Asthma</option>
                 <option value="asthma akut">Asthma Akut</option>
@@ -47,22 +45,17 @@ $_SESSION["disease"] = $disease;
                 <option value="eczema mulut">Eczema Mulut</option>
                 <option value="eczema tenggorokan">Eczema Tenggorokan</option>
                 <option value="diabetes">Diabetes</option>
-            </select>-->
-			<select name="Cure">
+            </select> -->
+			<select name="Disease">
 			
-				<?php
-				
-				$kontraindikasi = "SELECT * FROM `cure` WHERE diseaseName = '$disease'";
-				$queryIndikasi = mysqli_query($link, $kontraindikasi);
-				
-				while($row = mysqli_fetch_array($queryIndikasi)):;?>
-
-					<option value="<?php echo $row[2];?>"><?php echo $row[2];?></option>
+				<?php 
+				while($row = mysqli_fetch_array($result)):;?>
+					<option value="<?php echo $row[1];?>"><?php echo $row[1];?></option>
 				<?php endwhile;?>
 			
 			</select>
 
-            <input type="submit" name="submit" value="Submit">
+            <input type="submit" name="disease" value="Submit">
 
         </form>
 	</main>
