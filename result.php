@@ -56,7 +56,8 @@ $rumahsakit = $_POST['RumahSakit']
 			$medicineID = "SELECT DISTINCT
 								m.name,
 								m.price,
-								m.description
+								m.description,
+								c.aksi
 							FROM medicine m
 							INNER JOIN cure c
 								ON c.medicineID = m.medicineID
@@ -67,6 +68,7 @@ $rumahsakit = $_POST['RumahSakit']
 
 			<tr>
 		    	<th>Nama Obat</th>
+				<th>Dosis Penggunaan</th>
 				<th>Harga</th>
 		    	<th>Deskripsi</th>
 		  	</tr>
@@ -75,6 +77,7 @@ $rumahsakit = $_POST['RumahSakit']
 				while($row = mysqli_fetch_array($queryObat)):;?>
 				<tr>
 					<td><?= $row['name'];?></td>
+					<td><?= $row['aksi'];?></td>
 					<td><?= $row['price'];?></td>
 					<td><?= $row['description'];?></td>
 				<tr>
