@@ -35,10 +35,6 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
-  background-color: #ED5151;
-  transition: 0.4s;
-}
 
 .active {
   background-color: #32A873;

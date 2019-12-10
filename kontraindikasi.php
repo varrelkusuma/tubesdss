@@ -53,7 +53,7 @@ $_SESSION["disease"] = $disease;
 			
 				<?php
 				
-				$kontraindikasi = "SELECT DISTINCT * FROM `cure` WHERE diseaseName = '$disease'";
+				$kontraindikasi = "SELECT DISTINCT * FROM `cure` WHERE diseaseName = '$disease' GROUP BY `kondisi`";
 				$queryIndikasi = mysqli_query($link, $kontraindikasi);
 				
 				while($row = mysqli_fetch_array($queryIndikasi)):;?>
